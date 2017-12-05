@@ -1,24 +1,23 @@
 with import <nixpkgs> {};
-with pkgs.python34Packages;
+with pkgs.python35Packages;
 
 stdenv.mkDerivation {
   name = "impurePythonEnv";
   buildInputs = [
     # these packages are required for virtualenv and pip to work:
     #
-    python34Full
-    python34Packages.virtualenv
-    python34Packages.pip
+    python35Full
+    python35Packages.virtualenv
+    python35Packages.pip
     # the following packages are related to the dependencies of your python
     # project.
     # In this particular example the python modules listed in the
     # requirements.tx require the following packages to be installed locally
     # in order to compile any binary extensions they may require.
     #
-    gcc
-    SDL2
-    libffi
-    mesa
+    # SDL2
+    # libffi
+    # mesa
   ];
   src = null;
   shellHook = ''
